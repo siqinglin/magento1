@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Pagaio_Connect for Magento.
+ *
+ * @license MIT
+ * @category Pagaio
+ * @package Pagaio_Connect
+ * @copyright Copyright (c) 2018 Pagaio (https://pagaio.com/)
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <pagaio translate="title" module="pagaio_connect">
+                                        <title>Pagaio</title>
+                                    </pagaio>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

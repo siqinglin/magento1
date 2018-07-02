@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Pagaio_Connect for Magento.
+ *
+ * @license MIT
+ * @category Pagaio
+ * @package Pagaio_Connect
+ * @copyright Copyright (c) 2018 Pagaio (https://pagaio.com/)
+ */
+-->
+<layout version="0.1.0">
+    <pagaio_product_js>
+        <reference name="head">
+            <action method="addJs">
+                <script>pagaio/admin_product.js</script>
+            </action>
+        </reference>
+    </pagaio_product_js>
+
+    <adminhtml_catalog_product_new>
+        <update handle="pagaio_product_js"/>
+    </adminhtml_catalog_product_new>
+
+    <adminhtml_catalog_product_edit>
+        <update handle="pagaio_product_js"/>
+    </adminhtml_catalog_product_edit>
+
+    <adminhtml_customer_edit>
+        <reference name="customer_edit_tabs">
+            <action method="addTab">
+                <name>pagaio</name>
+                <block>pagaio_connect/adminhtml_customer_edit_tab_pagaio</block>
+            </action>
+        </reference>
+    </adminhtml_customer_edit>
+</layout>

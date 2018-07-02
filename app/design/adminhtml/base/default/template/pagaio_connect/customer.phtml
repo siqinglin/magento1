@@ -1,0 +1,63 @@
+<?php
+/**
+ * This file is part of Pagaio_Connect for Magento.
+ *
+ * @license MIT
+ * @category Pagaio
+ * @package Pagaio_Connect
+ * @copyright Copyright (c) 2018 Pagaio (https://pagaio.com/)
+ */
+/** @var Pagaio_Connect_Block_Adminhtml_Customer_Edit_Tab_Pagaio $this */
+?>
+<?php
+    $_pagaioCustomer = $this->getPagaioCustomer();
+?>
+<?php if ($_pagaioCustomer !== false): ?>
+    <?php if (isset($_pagaioCustomer['error'])): ?>
+    <ul>
+        <li style="font-weight:bold;color:red;">
+            <?php echo sprintf(
+                $this->__('Error during retrieving customer %s (Error code %d)'),
+                $this->getCustomer()->getPagaioCustomerId(),
+                $_pagaioCustomer['error']
+            ); ?>
+        </li>
+    </ul>
+    <?php else : ?>
+    <?php
+        $_pagaioCustomer['data']['attributes']['created_at'] = Mage::app()->getLocale()->date(
+            $_pagaioCustomer['data']['attributes']['created_at']
+        );
+    ?>
+    <ul>
+        <li><b><?php echo $this->__('General Information'); ?></b></li>
+        <li><?php echo sprintf('%s : %s', $this->__('Pagaio ID'), $_pagaioCustomer['data']['id']); ?></li>
+        <?php foreach($_pagaioCustomer['data']['attributes'] as $key => $value) : ?>
+            <?php $label = ucfirst(str_replace('_', ' ', $key)) ?>
+            <?php if (!is_array($value)) : ?>
+                <li><?php echo sprintf('%s : %s', $this->__($label), $value); ?></li>
+            <?php else : ?>
+                <ul>
+                    <li><b><?php echo $this->__($label); ?></b></li>
+                    <?php foreach($value as $subKey => $subValue) :?>
+                        <?php $label = ucfirst(str_replace('_', ' ', $subKey)) ?>
+                        <li><?php echo sprintf('%s : %s', $this->__($label), $subValue); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        <li>
+            <a href="<?php echo $this->helper('pagaio_connect')->getAppLink($_pagaioCustomer['data']['links']['self']) ?>" target="_blank">
+                <?php echo $this->__('Go to Pagaio customer\'s page'); ?>
+            </a>
+        </li>
+    </ul>
+    <?php endif; ?>
+
+    <script>
+        $$('#customer_info_tabs_pagaio > span')[0].insert({
+            top: '<img style="height: 16px;float: left;margin-top: 1px;margin-right: 3px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAnUExURUxpcQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK/XnHYAAAAMdFJOUwAEcB7Vi+y3oFgNPG+L2hUAAAE1SURBVCjPVZG/S8NQEMfvNa8Qk+UKDo6BrBmyuWTQxcUOD6wgkkWhNpQOwaFThji6ZepgOxSEDtJBcJI6xbRp7P1R5jUhP244uA/f+/F9DyCP6ZvMCFXMktfN17JJLCJKTFbVaA3n3wMyKtDdL/N8nmIlEPpgItAKS6Ckej8Jwl4nK6Yw9eA+2txHuCp7VrvtEnKAi+hI8Ici5UYq1mEBFrHWiSXgF+WSS9BM7ufDHoqhfankGftQ/471CQkE5LR7onGxlXypGN7tbqNjCx/9yuwr+9Ld+j5lEqgHVhzmGK5gPe5bojzUMc5yt9yrzDoGut58Ri9QAz0gumY1eAdtYxlYA8vOnX62AOC0fnMJmB6zFsDTMbSBG7VbulvWUpiBaPyjI1zKGgJwRhPPbghgRc92LfgHvUZUq6hqIZcAAABXelRYdFJhdyBwcm9maWxlIHR5cGUgaXB0YwAAeJzj8gwIcVYoKMpPy8xJ5VIAAyMLLmMLEyMTS5MUAxMgRIA0w2QDI7NUIMvY1MjEzMQcxAfLgEigSi4A6hcRdPJCNZUAAAAASUVORK5CYII=" />'
+        });
+    </script>
+
+<?php endif; ?>

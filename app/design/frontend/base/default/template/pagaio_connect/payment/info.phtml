@@ -1,0 +1,24 @@
+<?php
+/**
+ * This file is part of Pagaio_Connect for Magento.
+ *
+ * @license MIT
+ * @category Pagaio
+ * @package Pagaio_Connect
+ * @copyright Copyright (c) 2018 Pagaio (https://pagaio.com/)
+ */
+/** @var $this Pagaio_Connect_Block_Payment_Info */
+
+$payment = $this->getPagaioPayment();
+?>
+
+<div id="pagaio-payment">
+<?php switch ($payment['data']['attributes']['type']) {
+    case 'stripe': ?>
+    <img src="<?php echo $this->getSkinUrl('images/pagaio/stripe.png'); ?>" alt="CB" height="40" style="height:40px;" />
+    <?php break;
+    case 'GoCardLess': ?>
+    <img src="<?php echo $this->getSkinUrl('images/pagaio/sepa.png'); ?>" alt="SEPA" height="40" style="height:40px;" />
+    <?php break;
+} ?>
+</div>

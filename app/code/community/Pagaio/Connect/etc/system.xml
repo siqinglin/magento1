@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * This file is part of Pagaio_Connect for Magento.
+ *
+ * @license MIT
+ * @category Pagaio
+ * @package Pagaio_Connect
+ * @copyright Copyright (c) 2018 Pagaio (https://pagaio.com/)
+ */
+-->
+<config>
+    <tabs>
+        <pagaio_connect translate="label" module="pagaio_connect">
+            <label><![CDATA[
+<img style="height: 16px;float: left;margin-top: 1px;margin-right: 3px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAnUExURUxpcQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAK/XnHYAAAAMdFJOUwAEcB7Vi+y3oFgNPG+L2hUAAAE1SURBVCjPVZG/S8NQEMfvNa8Qk+UKDo6BrBmyuWTQxcUOD6wgkkWhNpQOwaFThji6ZepgOxSEDtJBcJI6xbRp7P1R5jUhP244uA/f+/F9DyCP6ZvMCFXMktfN17JJLCJKTFbVaA3n3wMyKtDdL/N8nmIlEPpgItAKS6Ckej8Jwl4nK6Yw9eA+2txHuCp7VrvtEnKAi+hI8Ici5UYq1mEBFrHWiSXgF+WSS9BM7ufDHoqhfankGftQ/471CQkE5LR7onGxlXypGN7tbqNjCx/9yuwr+9Ld+j5lEqgHVhzmGK5gPe5bojzUMc5yt9yrzDoGut58Ri9QAz0gumY1eAdtYxlYA8vOnX62AOC0fnMJmB6zFsDTMbSBG7VbulvWUpiBaPyjI1zKGgJwRhPPbghgRc92LfgHvUZUq6hqIZcAAABXelRYdFJhdyBwcm9maWxlIHR5cGUgaXB0YwAAeJzj8gwIcVYoKMpPy8xJ5VIAAyMLLmMLEyMTS5MUAxMgRIA0w2QDI7NUIMvY1MjEzMQcxAfLgEigSi4A6hcRdPJCNZUAAAAASUVORK5CYII=" />
+Pagaio
+            ]]></label>
+            <sort_order>100</sort_order>
+        </pagaio_connect>
+    </tabs>
+    <sections>
+        <pagaio translate="label" module="pagaio_connect">
+            <label>Main configuration</label>
+            <tab>pagaio_connect</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="pagaio_connect">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <expanded>1</expanded>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label" module="pagaio_connect">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <api_key translate="label comment" module="pagaio_connect">
+                            <label>API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                            <frontend_class>validate-alphanum</frontend_class>
+                        </api_key>
+                        <api_info translate="label comment" module="pagaio_connect">
+                            <label>Info</label>
+                            <frontend_model>pagaio_connect/adminhtml_system_config_info</frontend_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </api_info>
+                        <debug translate="label comment" module="pagaio_connect">
+                            <label>Debug mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                            <comment>Activate the debug mode if you want more details in the logs.</comment>
+                        </debug>
+                        <webhooks translate="label comment">
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <label>Webhooks</label>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </webhooks>
+                        <webhook_id translate="label comment">
+                            <frontend_model>pagaio_connect/adminhtml_system_config_webhook</frontend_model>
+                            <label>Webhook ID</label>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <active>1</active>
+                            </depends>
+                        </webhook_id>
+                    </fields>
+                </general>
+            </groups>
+        </pagaio>
+        <payment>
+            <groups>
+                <pagaio translate="label" module="pagaio_connect">
+                    <label>Pagaio</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>0</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <order_status translate="label">
+                            <label>New Order Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+                        <allowspecific translate="label">
+                            <label>Payment Applicable From</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>60</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Countries Payment Applicable From</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <allowspecific>1</allowspecific>
+                            </depends>
+                        </specificcountry>
+                        <sort_order translate="label">
+                            <label>Sort Order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_order>
+                    </fields>
+                </pagaio>
+            </groups>
+        </payment>
+    </sections>
+</config>

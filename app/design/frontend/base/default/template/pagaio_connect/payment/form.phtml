@@ -1,0 +1,44 @@
+<?php
+/**
+ * This file is part of Pagaio_Connect for Magento.
+ *
+ * @license MIT
+ * @category Pagaio
+ * @package Pagaio_Connect
+ * @copyright Copyright (c) 2018 Pagaio (https://pagaio.com/)
+ */
+/** @var $this Pagaio_Connect_Block_Payment_Form */
+?>
+<?php
+$paymentMethods = $this->getPaymentMethods();
+?>
+<?php if (isset($paymentMethods['error_message'])) : ?>
+    <p><?php echo $paymentMethods['error_message']; ?></p>
+<?php elseif (isset($paymentMethods['data']) && !empty($paymentMethods['data'])): ?>
+    <?php $allPayments = []; ?>
+    <?php foreach ($paymentMethods['data'] as $paymentMethod) : ?>
+        <?php $paymentKeyString = sprintf('%s_%s', $paymentMethod['type'], $paymentMethod['attributes']['type']); ?>
+        <input type="radio" name="payment[pagaio_id]" value="<?php echo $paymentMethod['id']; ?>" id="pagaio-payment-<?php echo $paymentMethod['id']; ?>" />
+        <label for="pagaio-payment-<?php echo $paymentMethod['id']; ?>">
+            <?php echo $this->__($paymentKeyString); ?>
+        </label>
+        <?php $allPayments[$paymentMethod['id']] = $paymentKeyString; ?>
+    <?php endforeach; ?>
+    <input type="hidden" name="payment[pagaio_methods]" value='<?php echo json_encode($allPayments); ?>' />
+<?php else : ?>
+    <p><?php echo $this->__('No Payment Methods') ?></p>
+<?php endif; ?>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var paymentInputName = 'payment[method]';
+    $$('#checkout-payment-method-load input[name="' + paymentInputName + '"]').first().up().hide();
+    payment.addAfterInitFunction('setNotDisablePagaioInput', function () {
+        var inputName = 'payment[pagaio_id]';
+        $$('input[name="' + inputName + '"]').invoke('enable');
+        if ($$('input[name="' + inputName + '"]').length == 1) {
+            $$('input[name="' + inputName + '"]').first().click();
+        }
+        $$('input[name="payment[pagaio_methods]"]').invoke('enable');
+    });
+</script>

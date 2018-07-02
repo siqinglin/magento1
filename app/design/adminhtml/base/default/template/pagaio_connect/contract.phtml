@@ -1,0 +1,28 @@
+<?php
+/**
+ * This file is part of Pagaio_Connect for Magento.
+ *
+ * @license MIT
+ * @category Pagaio
+ * @package Pagaio_Connect
+ * @copyright Copyright (c) 2018 Pagaio (https://pagaio.com/)
+ */
+?>
+<ul id="pagaio_contract_error" style="display:none;">
+    <li style="font-weight:bold;color:red;">
+        <?php echo $this->__('Error during retrieving contract : '); ?>
+        <span id="pagaio_contract_error_content"><span>
+    </li>
+</ul>
+<ul id="pagaio_contract_info" style="display:none;">
+    <li style="font-weight:bold;"><?php echo $this->__('Contract information'); ?></li>
+    <li><?php echo $this->__('ID:'); ?> <span id="pagaio_contract_id"><span></li>
+    <li><?php echo $this->__('Title:'); ?> <span id="pagaio_contract_title"><span></li>
+    <li><?php echo $this->__('Description:'); ?> <span id="pagaio_contract_description"><span></li>
+    <li><?php echo $this->__('Currency:'); ?> <span id="pagaio_contract_currency"><span></li>
+    <li><?php echo $this->__('Created at:'); ?> <span id="pagaio_contract_created_at"><span></li>
+</ul>
+<ul id="pagaio_contract_clauses" style="display:none;">
+    <li style="font-weight:bold;"><?php echo $this->__('Contract clauses'); ?></li>
+    <li id="pagaio_contract_clauses_info"></li>
+</ul>

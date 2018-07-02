@@ -1,0 +1,10 @@
+app/code/community/Pagaio/Connect app/code/community/Pagaio/Connect
+app/design/adminhtml/base/default/layout/pagaio_connect.xml app/design/adminhtml/base/default/layout/pagaio_connect.xml
+app/design/adminhtml/base/default/template/pagaio_connect app/design/adminhtml/base/default/template/pagaio_connect
+app/design/frontend/base/default/template/pagaio_connect app/design/frontend/base/default/template/pagaio_connect
+app/etc/modules/Pagaio_Connect.xml app/etc/modules/Pagaio_Connect.xml
+app/locale/en_US/Pagaio_Connect.csv app/locale/en_US/Pagaio_Connect.csv
+app/locale/fr_FR/Pagaio_Connect.csv app/locale/fr_FR/Pagaio_Connect.csv
+js/pagaio js/pagaio
+skin/adminhtml/base/default/images/pagaio skin/adminhtml/base/default/images/pagaio
+skin/frontend/base/default/images/pagaio skin/frontend/base/default/images/pagaio

@@ -1,0 +1,23 @@
+<jstranslator>
+    <pagaio_connect_contract_no_clause translate="message" module="pagaio_connect">
+        <message>Contract has no clause</message>
+    </pagaio_connect_contract_no_clause>
+    <pagaio_connect_contract_clause_id translate="message" module="pagaio_connect">
+        <message>ID:</message>
+    </pagaio_connect_contract_clause_id>
+    <pagaio_connect_contract_clause_type translate="message" module="pagaio_connect">
+        <message>Type:</message>
+    </pagaio_connect_contract_clause_type>
+    <pagaio_connect_contract_clause_name translate="message" module="pagaio_connect">
+        <message>Name:</message>
+    </pagaio_connect_contract_clause_name>
+    <pagaio_connect_contract_clause_description translate="message" module="pagaio_connect">
+        <message>Description:</message>
+    </pagaio_connect_contract_clause_description>
+    <pagaio_connect_contract_clause_enabled translate="message" module="pagaio_connect">
+        <message>Enabled:</message>
+    </pagaio_connect_contract_clause_enabled>
+    <pagaio_connect_contract_clause_attributes translate="message" module="pagaio_connect">
+        <message>Attributes:</message>
+    </pagaio_connect_contract_clause_attributes>
+</jstranslator>

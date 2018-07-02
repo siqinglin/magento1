@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * This file is part of Pagaio_Connect for Magento.
+ *
+ * @license MIT
+ * @category Pagaio
+ * @package Pagaio_Connect
+ * @copyright Copyright (c) 2018 Pagaio (https://pagaio.com/)
+ */
+-->
+<config>
+    <modules>
+        <Pagaio_Connect>
+            <version>0.1.3</version>
+        </Pagaio_Connect>
+    </modules>
+    <global>
+        <models>
+            <pagaio_connect>
+                <class>Pagaio_Connect_Model</class>
+            </pagaio_connect>
+        </models>
+        <helpers>
+            <pagaio_connect>
+                <class>Pagaio_Connect_Helper</class>
+            </pagaio_connect>
+        </helpers>
+        <blocks>
+            <pagaio_connect>
+                <class>Pagaio_Connect_Block</class>
+            </pagaio_connect>
+        </blocks>
+        <resources>
+            <pagaio_connect_setup>
+                <setup>
+                    <module>Pagaio_Connect</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </pagaio_connect_setup>
+        </resources>
+        <sales>
+            <quote>
+                <item>
+                    <product_attributes>
+                        <pagaio_contract />
+                    </product_attributes>
+                </item>
+            </quote>
+        </sales>
+        <events>
+            <sales_quote_collect_totals_after>
+                <observers>
+                    <pagaio_connect_check_quote>
+                        <class>pagaio_connect/observer</class>
+                        <method>checkQuote</method>
+                    </pagaio_connect_check_quote>
+                </observers>
+            </sales_quote_collect_totals_after>
+            <payment_method_is_active>
+                <observers>
+                    <pagaio_connect_check_quote_payment_method_is_active>
+                        <class>pagaio_connect/observer</class>
+                        <method>paymentMethodIsActive</method>
+                    </pagaio_connect_check_quote_payment_method_is_active>
+                </observers>
+            </payment_method_is_active>
+            <checkout_type_onepage_save_order_after>
+                <observers>
+                    <pagaio_connect_check_order>
+                        <class>pagaio_connect/observer</class>
+                        <method>checkIfContractIsOrdered</method>
+                    </pagaio_connect_check_order>
+                </observers>
+            </checkout_type_onepage_save_order_after>
+            <admin_system_config_changed_section_pagaio>
+                <observers>
+                    <save_config>
+                        <class>pagaio_connect/observer_system_config</class>
+                        <method>saveConfig</method>
+                    </save_config>
+                </observers>
+            </admin_system_config_changed_section_pagaio>
+        </events>
+    </global>
+    <default>
+        <payment>
+            <pagaio>
+                <title>Pagaio</title>
+                <active>1</active>
+                <order_status>pending</order_status>
+                <allowspecific>0</allowspecific>
+                <sort_order>1</sort_order>
+                <model>pagaio_connect/payment_method</model>
+                <payment_action>authorize</payment_action>
+            </pagaio>
+        </payment>
+        <pagaio>
+            <general>
+                <active>0</active>
+                <api_key />
+                <debug_mode>1</debug_mode>
+            </general>
+            <webhook>
+                <subscription_created />
+                <subscription_closed />
+                <subscription_payment_added />
+                <payment_scheduled />
+                <payment_processing />
+                <payment_waiting />
+                <payment_success />
+                <payment_failure />
+                <contract_created />
+                <customer_created />
+                <amendment_created />
+            </webhook>
+        </pagaio>
+    </default>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <pagaio_connect after="Mage_Adminhtml">Pagaio_Connect_Adminhtml</pagaio_connect>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Pagaio_Connect>
+                    <files>
+                        <default>Pagaio_Connect.csv</default>
+                    </files>
+                </Pagaio_Connect>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <pagaio_connect module="Pagaio_Connect">
+                    <file>pagaio_connect.xml</file>
+                </pagaio_connect>
+            </updates>
+        </layout>
+        <events>
+            <payment_info_block_prepare_specific_information>
+                <observers>
+                    <pagaio_info_block_prepare_specific_information>
+                        <class>pagaio_connect/observer</class>
+                        <method>paymentInfoBlockPrepareSpecificInformation</method>
+                    </pagaio_info_block_prepare_specific_information>
+                </observers>
+            </payment_info_block_prepare_specific_information>
+        </events>
+    </adminhtml>
+    <frontend>
+        <translate>
+            <modules>
+                <Pagaio_Connect>
+                    <files>
+                        <default>Pagaio_Connect.csv</default>
+                    </files>
+                </Pagaio_Connect>
+            </modules>
+        </translate>
+        <routers>
+            <pagaio_connect>
+                <use>standard</use>
+                <args>
+                    <module>Pagaio_Connect</module>
+                    <frontName>pagaio</frontName>
+                </args>
+            </pagaio_connect>
+        </routers>
+        <events>
+            <pagaio_webhook_received>
+                <observers>
+                    <pagaio_process_webhook>
+                        <class>pagaio_connect/observer_webhook</class>
+                        <method>processWebhook</method>
+                    </pagaio_process_webhook>
+                </observers>
+            </pagaio_webhook_received>
+        </events>
+    </frontend>
+</config>

@@ -1,0 +1,15 @@
+{
+  "name": "pagaio/magento1-module",
+  "description": "Magento 1 module which connects Pagaio and Magento together.",
+  "type": "magento-module",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pagaio",
+      "email": "hello@pagaio.com"
+    }
+  ],
+  "suggest": {
+    "magento-hackathon/magento-composer-installer": "Allows to manage this package as a dependency."
+  }
+}
