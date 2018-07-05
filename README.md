@@ -2,60 +2,36 @@
 
 # Pagaio - Module for Magento 1
 
-This module adds capabilities of Pagaio into your own shop running with Magento 1.
+This module adds capabilities of [Pagaio][pagaio] into your own shop running with Magento 1.
 
-## Installation
+## Getting Started
 
-You have many ways to install the module:
+If you don't have an account yet, please create one on [Pagaio][pagaio].
 
-### Using composer
+### Prerequisites
 
-First you need to install the `magento-hackathon/magento-composer-installer` package as a requirement. [Please follow the README to install it](https://github.com/Cotya/magento-composer-installer#readme).
+A Magento 1 running? 😜
 
-Then you just have to install the package using composer:
+### Documentation
 
-```bash
-composer require pagaio/magento1-module
-```
+We have a [full documentation available directly with the source code](./docs).
 
-*You may need to install `monsieurbiz/mbiz_iwantmysymlinksback` ([see the module](https://github.com/monsieurbiz/Mbiz_IWantMySymlinksBack#readme)) too in case you use symlinks as deployment method for Magento modules using composer.*
+## Contributing
 
-### Using modman
+Please read [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for details on the process for submitting pull requests to us, of maybe just an issue.
 
-Requirements: [follow installation instructions for modman](https://github.com/colinmollenhour/modman#requirements). Do not patch the `Template.php` file if you need it, please install the module `Mbiz_IWantMySymlinksBack` instead (see below).
+## Versioning
 
-To install using modan:
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/pagaio-lab/magento1/tags).
 
-```bash
-modman clone pagaio_connect https://github.com/pagaio-lab/magento1.git
-```
+## Authors
 
-*You may need to install `https://github.com/monsieurbiz/Mbiz_IWantMySymlinksBack.git` the same way ([see the module](https://github.com/monsieurbiz/Mbiz_IWantMySymlinksBack#readme)) in case you use symlinks as deployment method for Magento modules using modman.*
+* **Pagaio** - *Initial work* - [Pagaio][pagaio].
 
-<!-- @TODO -->
-<!-- ### Using the Magento Connect -->
-
-### Using the good old Copy/Paste way
-
-You just have to copy (using merge) the folders `app/`, `js/` and `skin/` into your Magento main folder.
-
-```bash
-cp -Rv app js skin my-magento-folder/
-```
-
-<!-- @TODO -->
-<!-- ## Configuration -->
-
-## Contribution
-
-Please feel free to contribute by [sending a Pull Request](https://github.com/pagaio-lab/magento1/pulls)!
-
-## Author & Contributors
-
-This source code is provided by [Pagaio](https://pagaio.com/) itself.
-
-Thank you to all [the contributors](https://github.com/pagaio-lab/magento1/graphs/contributors)!
+See also the list of [contributors](https://github.com/pagaio-lab/magento1/contributors) who participated in this project.
 
 ## License
 
-Please see the [LICENSE](https://github.com/pagaio-lab/magento1/blob/master/LICENSE) file.
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+[pagaio]: https://pagaio.com
