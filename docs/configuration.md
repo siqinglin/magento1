@@ -1,7 +1,6 @@
 # Configuration
 
-**You need a [Pagaio account][pagaio] first.**
-
+?> **You need a [Pagaio account][pagaio account] first.**
 
 
 Then you just have to go to the `System > Configuration` page, tab `PAGAIO Main configuration`.
@@ -15,17 +14,14 @@ In that section you need to:
 ![Configuration](./img/config1.png?raw=true)
 
 
-
 Next you have to enable all the webhooks by clicking the `Generate webhooks` button:
 
 ![Webhooks](./img/config2.png?raw=true)
 
 
-
 When it's done, you should have something like that:
 
 ![Configuration](./img/config3.png?raw=true)
-
 
 
 You can remove some webhooks if you don't want them. As example, if you don't need the `Customer created` webhook, because you're not using it, you can remove it.
@@ -36,6 +32,4 @@ You'll get something like this with of course the button to generate the missing
 
 You're set!
 
-
-
-[pagaio]: https://pagaio.com/
+[pagaio account]: https://pagaio.com/signup

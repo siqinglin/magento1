@@ -14,7 +14,9 @@ A Magento 1 running? 😜
 
 ### Documentation
 
-We have a [full documentation available directly with the source code](./docs).
+We have a [full documentation online](<https://pagaio-lab.github.io/magento1>) of the latest version of the module.
+
+This documentation is also available directly in the source code into the `docs/` directory.
 
 ## Contributing
 
