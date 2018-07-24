@@ -91,7 +91,10 @@ class Pagaio_Connect_Helper_Sales extends Mage_Core_Helper_Abstract
             return [400, $this->__('Subscription not found')];
         }
 
-        $orderId = $subscription['data']['attributes']['metadata']['magento_order_id'] ?? null;
+        $orderId = isset($subscription['data']['attributes']['metadata']['magento_order_id'])
+            ? $subscription['data']['attributes']['metadata']['magento_order_id']
+            : null;
+
         if (null === $orderId) {
             return [412, $this->__('Subscription %s is not related to a Magento order.', $subscriptionId)];
         }
